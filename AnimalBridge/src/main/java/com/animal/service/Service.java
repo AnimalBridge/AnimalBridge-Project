@@ -21,14 +21,14 @@ public class Service {
 	
 	
 	public int memberJoin(MemberVO vo) {
-		return dao.memberInsert(vo); 
+		return dao.memberJoin(vo); 
 	}
 	
-	public MemberVO memberLogIn(String nickName, String password) {
-		return dao.memberSelect(nickName, password);
+	public String memberLogIn(String nickName, String password) {
+		return dao.memberLogIn(nickName, password);
 	}
 	
-	public int memberLeave(String nickName) {
-		return dao.memberDelete(nickName);
+	public int memberLeave(String memberLogIn, String password) {
+		return dao.memberLeave(memberLogIn, password);
 	}
 }

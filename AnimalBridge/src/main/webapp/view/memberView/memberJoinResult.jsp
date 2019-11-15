@@ -4,6 +4,8 @@
 	pageEncoding="UTF-8"
 %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -14,13 +16,17 @@
 	<body>
 		<h3>회원가입 결과</h3>
 		
-		<p>${error}</p>
+		<c:choose>
+			<c:when test="${empty memberLogIn}">
+				<p>${error}</p>
+			</c:when>
 		
-		<p>Nick Name : ${result.nickName}</p>
-		<p>Email : ${result.email}</p>
-		<p>Password : ${result.password}</p>
-		<p>Addr : ${result.addr}</p>
-		<p>Phone : ${result.phone}</p>
+			<c:otherwise>
+				<p>${memberLogIn} 님, 회원가입을 축하 드립니다.
+			</c:otherwise>
+		</c:choose>
+		
+		<br/>
 		
 		<a href="../index.jsp">홈으로</a>
 	</body>
