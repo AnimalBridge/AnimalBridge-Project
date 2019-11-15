@@ -18,11 +18,14 @@ public class MemberLeaveController implements SubController {
 					throws ServletException, IOException {
 		String path = "/view/memberView/memberLeaveResult.jsp";
 		HttpSession session = req.getSession();
-		MemberVO memberVO = (MemberVO)session.getAttribute("memberLogIn");
-		String nickName = memberVO.getNickName();
+		String memberLogIn = (String)session.getAttribute("memberLogIn");
+		String password = req.getParameter("password");
+		
+		System.out.println("memberLogIn : " + memberLogIn);
+		System.out.println("password : " + password);
 		
 		Service service = Service.getInstance();
-		int result = service.memberLeave(nickName);
+		int result = service.memberLeave(memberLogIn, password);
 		
 		if(result > 0) {
 			req.setAttribute("result", "회원탈퇴가 정상처리 되었습니다");
@@ -33,5 +36,5 @@ public class MemberLeaveController implements SubController {
 		}
 		
 		AppUtil.forward(req, resp, path);
-	}	
+	}
 }
