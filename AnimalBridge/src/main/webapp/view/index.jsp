@@ -182,18 +182,19 @@
             <p>U</p>
         </div>
         <ul>
-        	
         	<c:choose>
         		<c:when test="${empty memberLogIn}">
         			<li onclick="location.href='/AnimalBridge/view/memberView/memberLogIn.jsp'">로그인</li>
+        			<li onclick="location.href='memberView/memberJoin.jsp'">회원가입</li>
         		</c:when>
         		
         		<c:otherwise>
+        			<li onclick="location.href='/AnimalBridge/view/memberView/memberJoin.jsp'">마이페이지</li>
         			<li onclick="location.href='/AnimalBridge/view/memberView/memberLogOut.do'">로그아웃</li>
+        			<li onclick="location.href='memberView/memberLeave.jsp'">탈퇴</li>
         		</c:otherwise>
         	</c:choose>
-             
-            <li onclick="location.href='/AnimalBridge/view/memberView/memberJoin.jsp'">마이페이지</li>
+            
             <li>사이트 소개</li>
         </ul>
     </div>
