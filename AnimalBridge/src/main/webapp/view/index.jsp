@@ -1,5 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page 
+	language="java" 
+	contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+    session="true"
+    buffer="8kb"
+    autoFlush="true"
+    errorPage="errorView/jspErrorHandler.jsp"
+    
+    info="Title화면 입니다(web.xml - welcome file)"
+%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -20,7 +33,7 @@
         body{
             width: 100%;
             height: 100%;
-            background-image: url(view/mainView/black.jpg);
+            background-image: url(mainView/black.jpg);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -169,7 +182,17 @@
             <p>U</p>
         </div>
         <ul>
-            <li onclick="location.href='/AnimalBridge/view/memberView/memberLogIn.jsp'">로그인</li> 
+        	
+        	<c:choose>
+        		<c:when test="${empty memberLogIn}">
+        			<li onclick="location.href='/AnimalBridge/view/memberView/memberLogIn.jsp'">로그인</li>
+        		</c:when>
+        		
+        		<c:otherwise>
+        			<li onclick="location.href='/AnimalBridge/view/memberView/memberLogOut.do'">로그아웃</li>
+        		</c:otherwise>
+        	</c:choose>
+             
             <li onclick="location.href='/AnimalBridge/view/memberView/memberJoin.jsp'">마이페이지</li>
             <li>사이트 소개</li>
         </ul>
@@ -180,22 +203,22 @@
         <div id="wrap2">
             <div class="person" id="person1">
                     <div class="parson_menuO">저 행복해요</div>
-                    <div class="person_img"><img src="view/mainView/showIcon.png"></div>
+                    <div class="person_img"><img src="mainView/showIcon.png"></div>
                     <div class="person_menuI">저 행복해요</div>
             </div>
             <div class="person" id="person2">
                      <div class="parson_menuO">입양예약</div>
-                     <div class="person_img"><img src="view/mainView/reservationIcon.png"></div>
+                     <div class="person_img"><img src="mainView/reservationIcon.png"></div>
                      <div class="person_menuI">입양예약</div>
             </div>
             <div class="person" id="person3">
                     <div class="parson_menuO">자원봉사</div>
-                    <div class="person_img"><img src="view/mainView/volunteerIcon.png"></div>
+                    <div class="person_img"><img src="mainView/volunteerIcon.png"></div>
                     <div class="person_menuI">자원봉사</div>
             </div>
             <div class="person" id="person4">
                     <div class="parson_menuO">유기동물신고</div>
-                    <div class="person_img"><img src="view/mainView/mapIcon.png"></div>
+                    <div class="person_img"><img src="mainView/mapIcon.png"></div>
                     <div class="person_menuI">유기동물신고</div>
             </div>
         </div>
