@@ -4,6 +4,8 @@
 	pageEncoding="UTF-8"
 %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -13,23 +15,16 @@
 
 	<body>
 		<h3>로그인 결과</h3>
-		<%
-		if(session.getAttribute("memberLogIn") != null) {
-		%>
-			<p>어서오세요 "${memberLogIn.nickName}"님</p>
+
+		<c:choose>
+			<c:when test="${empty memberLogIn}">
+				<p>${error}</p>
+			</c:when>
 			
-			<hr/>
-			
-			<h3>로그인 정보</h3>
-			<p>Nick Name : ${memberLogIn.nickName}</p>
-			<p>Email : ${memberLogIn.email}</p>
-			<p>Password : ${memberLogIn.password}</p>
-			<p>Addr : ${memberLogIn.addr}</p>
-			<p>Phone : ${memberLogIn.phone}</p>
-			
-		<% } else { %>
-			${error}
-		<% } %>
+			<c:otherwise>
+				<p>어서오세요 "${memberLogIn}"님</p>
+			</c:otherwise>
+		</c:choose>	
 		
 		<br/>
 		

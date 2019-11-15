@@ -18,14 +18,14 @@ public class MemberLogInController implements SubController {
 		String password = req.getParameter("password");
 		
 		Service service = Service.getInstance();
-		MemberVO memberVO = service.memberLogIn(nickName, password);
+		String memberLogIn = service.memberLogIn(nickName, password);
 		
-		if(memberVO == null) {
+		if(memberLogIn == null || memberLogIn.isEmpty()) {
 			req.setAttribute("error", "Nick Name 또는 비밀번호가 틀렸습니다.");
 			
 		} else {
 			HttpSession session = req.getSession();
-			session.setAttribute("memberLogIn", memberVO);
+			session.setAttribute("memberLogIn", memberLogIn);
 		}
 		
 		AppUtil.forward(req, resp, path);
