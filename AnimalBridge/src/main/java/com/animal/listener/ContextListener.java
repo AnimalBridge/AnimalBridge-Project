@@ -7,6 +7,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.animal.controller.SubController;
+import com.animal.controller.map.MapSaveController;
 import com.animal.controller.map.MapShowController;
 import com.animal.controller.member.MemberJoinController;
 import com.animal.controller.member.MemberLeaveController;
@@ -23,7 +24,8 @@ public class ContextListener implements ServletContextListener {
 		controllers.put("/view/memberView/memberLogOut.do", new MemberLogOutController());
 		controllers.put("/view/memberView/memberLeave.do", new MemberLeaveController());
 		
-		controllers.put("/view/MapView/MapTest.do", new MapShowController());
+		controllers.put("/view/MapView/Map.do", new MapShowController());
+		controllers.put("/view/MapView/SaveMap.do", new MapSaveController());
 		
 		event.getServletContext().setAttribute("controllers", controllers);
 	}

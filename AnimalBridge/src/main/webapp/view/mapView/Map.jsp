@@ -16,11 +16,12 @@
     <div id="map" style="width:100%;height:350px;"></div>
     <p><em>지도를 클릭해주세요!</em></p>
     <p id="result"></p>
-    <form action="SaveMapTest.do" method="get">
+    <form action="SaveMap.do" method="get">
         경도 <input type="text" name="x" id="x" readonly><br>
         위도 <input type="text" name="y" id="y" readonly><br>
-        특징 <input type="text" name="title" id="title"><br>
-        주소 <input type="text" name="address" id="address"><br>
+        종류 <input type="text" name="title" id="title"><br>
+       특징 <input type="text" name="special" id="special"> <br>
+        주소 <input type="text" name="address" id="address" readonly><br>
         <input type="submit">
     </form>
 	

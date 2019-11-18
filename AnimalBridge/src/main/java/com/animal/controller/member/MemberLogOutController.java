@@ -17,7 +17,7 @@ public class MemberLogOutController implements SubController {
 		ServletContext context = req.getServletContext();
 		String url = context.getContextPath() + "/view/memberView/index.jsp";
 		
-		req.getSession().removeAttribute("memberLogIn");
+		req.getSession().invalidate();  //session 값 모두 지우기
 		
 		resp.sendRedirect(url);
 	}

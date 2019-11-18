@@ -14,6 +14,7 @@
 	<body>
 		<h3>로그인</h3>
 		<form action="memberLogIn.do" method="POST">
+			Email : <input type="text" name="email"/> <br/>
 			Nick Name : <input type="text" name="nickName"/><br/>
 			Password : <input type="password" name="password"/><br/>
 			<input type="submit" value="로그인"/>

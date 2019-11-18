@@ -72,7 +72,7 @@ public class MapDAO {
 	}
 	
 	public String mapSelectAllJson() {
-
+		conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -101,15 +101,57 @@ public class MapDAO {
 			try {
 				if (rs != null)
 					rs.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}try {
 				if (pstmt != null)
 					pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}try {
 				if (conn != null)
 					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			} catch (Exception e2) {
+				e2.printStackTrace();
 			}
 		}
 		String json = jsonArr.toString();
 		return json;
+	}
+	
+	public int mapInsert(MapVO vo) {
+		int result = 0;
+		String sql = "INSERT INTO MAP VALUES(?,?,?,?,?,?)";
+		conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBCP.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getX());
+			pstmt.setString(3, vo.getY());
+			pstmt.setString(4, vo.getTitle());
+			pstmt.setString(5, vo.getSpecial());
+			pstmt.setString(6, vo.getMap_address());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}try {
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
 	}
 }

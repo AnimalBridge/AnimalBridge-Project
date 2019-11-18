@@ -26,7 +26,7 @@ public class MemberLeaveController implements SubController {
 		
 		if(result > 0) {
 			req.setAttribute("result", "회원탈퇴가 정상처리 되었습니다");
-			session.removeAttribute("memberLogIn");
+			session.invalidate(); //session 값 모두 지우기
 			
 		} else {
 			req.setAttribute("error", "회원탈퇴가 처리되지 못했습니다");

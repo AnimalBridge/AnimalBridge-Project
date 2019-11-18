@@ -28,4 +28,8 @@ public class MapService {
 	public String getJsonAll() {
 		return mapDao.mapSelectAllJson();
 	}
+	
+	public int saveAll(MapVO vo) {
+		return mapDao.mapInsert(vo);
+	}
 }
