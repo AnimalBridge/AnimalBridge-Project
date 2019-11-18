@@ -20,16 +20,10 @@
         경도 <input type="text" name="x" id="x" readonly><br>
         위도 <input type="text" name="y" id="y" readonly><br>
         특징 <input type="text" name="title" id="title"><br>
+        주소 <input type="text" name="address" id="address"><br>
         <input type="submit">
     </form>
-	<div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    <div class="hAddr">
-        <span class="title">지도중심기준 행정동 주소정보</span>
-        <span id="centerAddr"></span>
-    </div>
-</div>
-
+	
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=34d8d65e2aab71c5883a60b3c3d28c77&libraries=services,clusterer,drawing"></script>
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=34d8d65e2aab71c5883a60b3c3d28c77"></script>
@@ -97,20 +91,11 @@
         var imageSize2 = new kakao.maps.Size(64, 69),
             markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2); // 마커 이미지를 생성합니다    
 
-            
-            // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-            searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-            
         var marker2 = new kakao.maps.Marker({
             map: map, // 마커를 표시할 지도
             image: markerImage2 // 마커 이미지 
         }), infowindow = new kakao.maps.InfoWindow({zindex:1});;
         //지도에 클릭 이벤트를 등록합니다
-        
-        
-        // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-		searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-        
         
         //지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
         kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
@@ -118,10 +103,10 @@
         	searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
                 if (status === kakao.maps.services.Status.OK) {
                     var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
-                    detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
+                    detailAddr += '<div id="addressInfo">' + result[0].address.address_name + '</div>';
                     
                     var content = '<div class="bAddr">' +
-                                    '<span class="title">법정동 주소정보</span>' + 
+                                    '<span class="title"> 주소정보</span>' + 
                                     detailAddr + 
                                 '</div>';
 					           
@@ -147,6 +132,9 @@
                     y.value = latlng.getLat();
                     var resultDiv = document.getElementById('result');
                     resultDiv.innerHTML = message;
+                    var address = document.getElementById("address");
+                    var addressInfo = document.getElementById("addressInfo");
+                    address.value = addressInfo.innerHTML;
                 }   
             });
         });
@@ -162,20 +150,6 @@
             geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
         }
 
-        // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-        function displayCenterInfo(result, status) {
-            if (status === kakao.maps.services.Status.OK) {
-                var infoDiv = document.getElementById('centerAddr');
-
-                for(var i = 0; i < result.length; i++) {
-                    // 행정동의 region_type 값은 'H' 이므로
-                    if (result[i].region_type === 'H') {
-                        infoDiv.innerHTML = result[i].address_name;
-                        break;
-                    }
-                }
-            }    
-        }
     </script>
 </body>
 
