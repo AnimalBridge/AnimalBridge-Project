@@ -20,13 +20,12 @@ public class MapSaveController implements SubController{
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
-		String path = "/AnimalBridge/view/mapView/MapTrue.jsp";
+		String path = "/view/mapView/MapTrue.jsp";
 
 		HttpSession session = req.getSession();
 		String email = (String)session.getAttribute("email");
 
 		if((email != null) & (email != "")) {
-			MemberVO memberVO = (MemberVO)session.getAttribute("memberLogIn");
 
 			MapVO mapVO = new MapVO();
 
@@ -48,9 +47,9 @@ public class MapSaveController implements SubController{
 			int result = mapService.saveAll(mapVO);
 
 			if(result>0) {
-				AppUtil.forward(req, resp, path);
-			}else{
-				AppUtil.forward(req, resp, "/view/mapView/MapFalse.jsp");
+				resp.sendRedirect("/AnimalBridge/view/MapView/Map.do");
+			}else if(result <= 0){
+				resp.sendRedirect("/AnimalBridge/view/mapView/MapFalse.jsp");
 			}
 		}else {
 			resp.sendRedirect("/AnimalBridge/view/memberView/memberLogIn.jsp");

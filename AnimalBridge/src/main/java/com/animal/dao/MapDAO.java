@@ -136,7 +136,8 @@ public class MapDAO {
 			pstmt.setString(5, vo.getSpecial());
 			pstmt.setString(6, vo.getMap_address());
 			
-			pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {

@@ -59,7 +59,7 @@ create table MAP(
     y VARCHAR(25) not null,
     map_address VARCHAR(50) primary key,
     special VARCHAR(50),
-    title VARCHAR(15),
+    title VARCHAR(50),
     FOREIGN KEY (email) REFERENCES animal_member (email) 
     on delete cascade
     on update cascade
