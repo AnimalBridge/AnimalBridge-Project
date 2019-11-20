@@ -42,8 +42,43 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
 
+
+
+
+
+
+
+
+
+		
+		<!-- 2019.11.19 박보금 mysql 연결을 위해 추가 -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.45</version>
+		</dependency>
+		
+		<!-- 2019.11.19 박보금 mysql 연결을 위해 추가 -->
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
+		<!-- 2019.11.19 박보금 mysql 연결을 위해 추가 -->
+		<dependency>
+		    <groupId>commons-pool</groupId>
+		    <artifactId>commons-pool</artifactId>
+		    <version>1.6</version>
+		</dependency>
+
+
+
+
+
+
+	</dependencies>
 	<build>
 		<finalName>AnimalBridge</finalName>
 		<plugins>

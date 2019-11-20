@@ -33,6 +33,6 @@
 		
 		<br/>
 		
-		<a href="../index.jsp">홈으로</a>
+		<a href="http://localhost:9090/AnimalBridge/">홈으로</a>
 	</body>
 </html>

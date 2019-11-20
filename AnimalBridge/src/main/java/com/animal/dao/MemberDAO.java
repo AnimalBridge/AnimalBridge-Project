@@ -30,7 +30,7 @@ public class MemberDAO {
 		int result = 0;
 		
 		try {
-			String sql = "INSERT INTO MEMBER" + 
+			String sql = "INSERT INTO ANIMAL_MEMBER" + 
 						 "(NICK_NAME, EMAIL, PASSWORD, ADDR, PHONE) " +
 						 "VALUES(?, ?, ?, ?, ?)";
 			
@@ -59,7 +59,7 @@ public class MemberDAO {
 		MemberVO memberVO = null;
 		
 		try {
-			String sql = "SELECT * FROM MEMBER WHERE NICK_NAME=? AND PASSWORD=?";
+			String sql = "SELECT * FROM ANIMAL_MEMBER WHERE NICK_NAME=? AND PASSWORD=?";
 			conn = DBCP.getConnection();
 			preStatement = conn.prepareStatement(sql);
 			preStatement.setString(1, nickName);
@@ -89,7 +89,7 @@ public class MemberDAO {
 		int result = 0;
 		
 		try {
-			String sql = "DELETE FROM MEMBER WHERE NICK_NAME=?";
+			String sql = "DELETE FROM ANIMAL_MEMBER WHERE NICK_NAME=?";
 			conn = DBCP.getConnection();
 			preStatement = conn.prepareStatement(sql);
 			preStatement.setString(1, nickName);

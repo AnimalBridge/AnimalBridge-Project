@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
         body{
             width: 100%;
             height: 100%;
-            background-image: url(view/mainView/black.jpg);
+            background-image: url(view/mainView/bg1.jpg);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -186,7 +187,8 @@
             <div class="person" id="person2">
                      <div class="parson_menuO">입양예약</div>
                      <div class="person_img"><img src="view/mainView/reservationIcon.png"></div>
-                     <div class="person_menuI">입양예약</div>
+                     <div class="person_menuI" 
+                     	onclick="location.href='/AnimalBridge/view/reservationView/rev_vow.jsp'">입양예약</div>
             </div>
             <div class="person" id="person3">
                     <div class="parson_menuO">자원봉사</div>
