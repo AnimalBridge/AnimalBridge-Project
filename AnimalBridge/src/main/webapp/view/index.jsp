@@ -193,7 +193,7 @@
                     <div class="person_img"><img src="/AnimalBridge/view/mainView/volunteerIcon.png"></div>
                     <div class="person_menuI">자원봉사</div>
             </div>
-            <div class="person" id="person4" onclick="location.href='/AnimalBridge/view/MapView/Map.do'">
+            <div class="person" id="person4" onclick="location.href='/AnimalBridge/view/mapView/Map.do'">
                     <div class="parson_menuO">유기동물신고</div>
                     <div class="person_img"><img src="/AnimalBridge/view/mainView/mapIcon.png"></div>
                     <div class="person_menuI">유기동물신고</div>

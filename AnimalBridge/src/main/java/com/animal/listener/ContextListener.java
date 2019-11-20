@@ -24,8 +24,8 @@ public class ContextListener implements ServletContextListener {
 		controllers.put("/view/memberView/memberLogOut.do", new MemberLogOutController());
 		controllers.put("/view/memberView/memberLeave.do", new MemberLeaveController());
 		
-		controllers.put("/view/MapView/Map.do", new MapShowController());
-		controllers.put("/view/MapView/SaveMap.do", new MapSaveController());
+		controllers.put("/view/mapView/Map.do", new MapShowController());
+		controllers.put("/view/mapView/SaveMap.do", new MapSaveController());
 		
 		event.getServletContext().setAttribute("controllers", controllers);
 	}

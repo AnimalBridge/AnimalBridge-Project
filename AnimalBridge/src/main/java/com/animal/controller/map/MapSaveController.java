@@ -47,7 +47,7 @@ public class MapSaveController implements SubController{
 			int result = mapService.saveAll(mapVO);
 
 			if(result>0) {
-				resp.sendRedirect("/AnimalBridge/view/MapView/Map.do");
+				resp.sendRedirect("/AnimalBridge/view/mapView/Map.do");
 			}else if(result <= 0){
 				resp.sendRedirect("/AnimalBridge/view/mapView/MapFalse.jsp");
 			}
