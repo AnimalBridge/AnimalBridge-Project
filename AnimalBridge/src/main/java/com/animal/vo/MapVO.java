@@ -1,7 +1,7 @@
 package com.animal.vo;
 
 public class MapVO {
-	private String email;
+	private String member_email;
 	private String x; 
 	private String y ;
 	private String special;
@@ -10,8 +10,8 @@ public class MapVO {
 	
 	public MapVO() {}
 	
-	public MapVO(String email, String x, String y, String special, String title, String map_address) {
-		this.email = email;
+	public MapVO(String member_email, String x, String y, String special, String title, String map_address) {
+		this.member_email = member_email;
 		this.x = x;
 		this.y = y;
 		this.special = special;
@@ -20,12 +20,12 @@ public class MapVO {
 				
 	}
 
-	public String getEmail() {
-		return email;
+	public String getMember_email() {
+		return member_email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
 	}
 
 	public String getX() {
@@ -70,7 +70,7 @@ public class MapVO {
 
 	@Override
 	public String toString() {
-		return "MapVO [email=" + email + ", x=" + x + ", y=" + y + ", "
+		return "MapVO [member_email=" + member_email + ", x=" + x + ", y=" + y + ", "
 				+ "special=" + special + ", title=" + title
 				+ ", map_address=" + map_address + "]";
 	}

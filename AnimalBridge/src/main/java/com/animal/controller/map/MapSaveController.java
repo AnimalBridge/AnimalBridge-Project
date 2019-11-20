@@ -37,7 +37,7 @@ public class MapSaveController implements SubController{
 			String special = req.getParameter("special");
 			String map_address = req.getParameter("address");
 
-			mapVO.setEmail(email);
+			mapVO.setMember_email(email);
 			mapVO.setX(x);
 			mapVO.setY(y);
 			mapVO.setTitle(title);

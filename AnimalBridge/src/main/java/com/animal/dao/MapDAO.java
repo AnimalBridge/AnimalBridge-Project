@@ -46,7 +46,7 @@ public class MapDAO {
 
 			while (rs.next()) {
 				MapVO mapVO = new MapVO();
-				mapVO.setEmail(rs.getString("email"));
+				mapVO.setMember_email(rs.getString("member_email"));
 				mapVO.setX(rs.getString("x"));
 				mapVO.setY(rs.getString("y"));
 				mapVO.setTitle(rs.getString("title"));
@@ -87,7 +87,7 @@ public class MapDAO {
 
 			while (rs.next()) {
 				JSONObject jsonObj = new JSONObject();
-				jsonObj.put("email",(rs.getString("email")));
+				jsonObj.put("member_email",(rs.getString("member_email")));
 				jsonObj.put("x",(rs.getString("x")));
 				jsonObj.put("y",(rs.getString("y")));
 				jsonObj.put("title",(rs.getString("title")));
@@ -129,7 +129,7 @@ public class MapDAO {
 			conn = DBCP.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(1, vo.getMember_email());
 			pstmt.setString(2, vo.getX());
 			pstmt.setString(3, vo.getY());
 			pstmt.setString(4, vo.getMap_address());

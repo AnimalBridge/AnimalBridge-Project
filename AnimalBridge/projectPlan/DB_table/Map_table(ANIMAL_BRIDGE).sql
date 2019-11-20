@@ -37,7 +37,7 @@ DROP TABLE MEMBER;
 
 -- Oracle
 create table MAP(
-    email VARCHAR2(30),
+    member_email VARCHAR2(30),
     x varchar2(25) not null,
     y varchar2(25) not null,
     map_address varchar2(50) primary key,
@@ -54,20 +54,20 @@ DROP TABLE map;
 
 -- MySql
 create table MAP(
-    email VARCHAR(30),
+    member_email VARCHAR(30),
     x VARCHAR(25) not null,
     y VARCHAR(25) not null,
     map_address VARCHAR(50) primary key,
     special VARCHAR(50),
     title VARCHAR(50),
-    FOREIGN KEY (email) REFERENCES animal_member (email) 
+    FOREIGN KEY (member_email) REFERENCES animal_member (email) 
     on delete cascade
     on update cascade
 );
 -- 
 
 INSERT INTO MAP 
-VALUES('aa', '126.570667', '33.450701','어딘가','TEST','TEST');
+VALUES('aa', '126.57170473775234', '33.45065027408781','어딘가','TEST','TEST');
 
 SELECT * FROM MAP;
 drop table map;
