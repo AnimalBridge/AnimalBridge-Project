@@ -132,9 +132,9 @@ public class MapDAO {
 			pstmt.setString(1, vo.getEmail());
 			pstmt.setString(2, vo.getX());
 			pstmt.setString(3, vo.getY());
-			pstmt.setString(4, vo.getTitle());
+			pstmt.setString(4, vo.getMap_address());
 			pstmt.setString(5, vo.getSpecial());
-			pstmt.setString(6, vo.getMap_address());
+			pstmt.setString(6, vo.getTitle());
 			
 			result = pstmt.executeUpdate();
 			
