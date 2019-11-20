@@ -7,13 +7,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/AnimalBridge/view/mapView/css/map.css">
+    <link rel="stylesheet" type="text/css" href="map.css">
     <title>Animal Bridge Map</title>
 </head>
 
 <body>
-    <div id="map" style="width:100%;height:350px;"></div>
+    <div id="map" style="width:100%; height:350px;"></div>
     <p><em>지도를 클릭해주세요!</em></p>
     <p id="result"></p>
     <form action="SaveMap.do" method="get">

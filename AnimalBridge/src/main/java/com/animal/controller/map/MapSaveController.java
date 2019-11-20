@@ -23,10 +23,12 @@ public class MapSaveController implements SubController{
 		String path = "/view/mapView/MapTrue.jsp";
 
 		HttpSession session = req.getSession();
-		String email = (String)session.getAttribute("email");
+		MemberVO memberVO = (MemberVO)session.getAttribute("memberLogIn");
+		
 
-		if((email != null) & (email != "")) {
-
+		if(memberVO != null) {
+			
+			String email = memberVO.getEmail();
 			MapVO mapVO = new MapVO();
 
 			String x = req.getParameter("x");
