@@ -3,7 +3,7 @@ package com.animal.controller.reservation;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class calendarTest {
+public class Test_calendar {
 	public static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {

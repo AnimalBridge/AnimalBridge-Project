@@ -44,20 +44,26 @@
 		}
 		
 		for(int i=1; i<=lastDay; i++){
+			
 		    if(i<10){
 		        result = result+"<td>"+"0"+i+"</td>";
 		    }else{
 		        result = result+"<td>"+i+"</td>";
 		    }
+		    
+		    
 		    cal.set(year, month, i);
-		    if(cal.get(Calendar.DAY_OF_WEEK) % 7 == 0){
+		    week = cal.get(Calendar.DAY_OF_WEEK);
+		    
+		    if(week % 7 == 0){
 		        result =  result+ "</tr><tr>";
 		   }
 		}
 		
 		String ym =  year+"."+(month+1);
 		String calen = result;
-		
+	
+		request.setAttribute("week", cal.get(Calendar.DAY_OF_WEEK));
 	
 	%>
 	
@@ -89,18 +95,34 @@
 		<td class = "saturday">토</td>
 	</tr>
 	<tr>
- 	<c:forEach var="i" begin="0" end="<%=week-2%>" step="1">
-​	<td><%-- ${i} --%>X</td>
+	
+  	<c:forEach var="i" begin="0" end="<%=week-2%>" step="1">
+​		<td>X</td>
 	</c:forEach> 
 	<c:forEach var="i" begin="1" end="<%=lastDay%>" step="1">
-		 <c:if test="조건문">
-		 </c:if>
-	</c:forEach> 
+		<c:choose>
+			<c:when test="${i lt 10}">
+		 		<td>0${i}</td>
+		 	</c:when>
+		 	<c:when test="${i ge 10}">
+		 		<td>${i}</td>
+		 	</c:when>
+<%--   		 	<% 	/* int i = Integer.parseInt(request.getParameter("i")); */
+		 		/* cal.set(year, month, i);  */
+		 		
+		 		/* week = cal.get(Calendar.DAY_OF_WEEK);
+		 		request.setAttribute("week", week); */
+		 		%>  --%>  
+			<c:when test="${(week % 7) == 0}">
+				<tr></tr>
+			</c:when>
+		</c:choose>
+	</c:forEach>  
+
 	
 	
 	
-	
-<%-- 	 <%=calen %>  --%>
+<%--  	 <%=calen %>   --%>
 	</tr>
 	
 </table>
