@@ -26,10 +26,10 @@ public class MemberLogInController implements SubController {
 		} else {
 			HttpSession session = req.getSession();
 			session.setAttribute("memberLogInNickName", memberLogIn.getNickName());
-			session.setAttribute("memberLogInGrade", memberLogIn.getGrade());
+			session.setAttribute("memberLogInCenterIdx", memberLogIn.getCenterIdx());
 			
 			System.out.println(memberLogIn.getNickName());
-			System.out.println(memberLogIn.getGrade());
+			System.out.println(memberLogIn.getCenterIdx());
 		}
 		
 		AppUtil.forward(req, resp, path);

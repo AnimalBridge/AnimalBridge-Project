@@ -7,7 +7,7 @@ public class MemberVO {
 	private String password;
 	private String phone;
 	private String addr;
-	private String grade;
+	private int centerIdx;
 	
 	
 	public MemberVO() { }
@@ -17,14 +17,14 @@ public class MemberVO {
 					String password,
 					String phone,
 					String addr,
-					String grade) {
+					int centerIdx) {
 		this.email = email;
 		this.name = name;
 		this.nickName = nickName;
 		this.password = password;
 		this.phone = phone;
 		this.addr = addr;
-		this.grade = grade;
+		this.centerIdx = centerIdx;
 	}
 	
 	
@@ -76,10 +76,10 @@ public class MemberVO {
 	}
 	
 	
-	public String getGrade() {
-		return grade;
+	public int getCenterIdx() {
+		return centerIdx;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setCenterIdx(int centerIdx) {
+		this.centerIdx = centerIdx;
 	}
 }

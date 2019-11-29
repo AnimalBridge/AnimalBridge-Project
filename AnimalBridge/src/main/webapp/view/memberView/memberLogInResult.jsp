@@ -23,7 +23,7 @@
 			
 			<c:otherwise>
 				<p>어서오세요 "${memberLogInNickName}"님</p>
-				<p>등급 : ${memberLogInGrade}</p>
+				<p>등급 : ${memberLogInCenterIdx}</p>
 			</c:otherwise>
 		</c:choose>
 		

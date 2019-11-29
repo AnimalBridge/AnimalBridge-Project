@@ -10,7 +10,9 @@
         <meta charset="UTF-8">
         <title>저 행복해요</title>
         
-        <link rel="stylesheet" type="text/css" href="<%= application.getContextPath() %>/css/happyBoard/happyBoardWriter.css">
+        <style>
+        	<%@ include file="/css/happyBoard/happyBoardWriter.css" %>
+        </style>
     </head>
     
     <body>

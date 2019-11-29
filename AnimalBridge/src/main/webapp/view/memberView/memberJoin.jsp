@@ -98,13 +98,13 @@
 				<div>
 					<span>회원 등급</span>
 					
-					<input type="radio" name="grade" value="normal">
+					<input type="radio" name="centerIdx" value="0">
 					<label>일반회원</label>
 					
-					<input type="radio" name="grade" value="protectCenter"/>
+					<input type="radio" name="centerIdx" value="1"/>
 					<label>보호소</label>
 					
-					<input type="radio" name="grade" value="protector"/>
+					<input type="radio" name="centerIdx" value="2"/>
 					<label>보호사</label>
 				</div>
 			</div>

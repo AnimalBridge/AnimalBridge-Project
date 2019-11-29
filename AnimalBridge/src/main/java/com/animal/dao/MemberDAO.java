@@ -31,7 +31,7 @@ public class MemberDAO {
 		
 		try {
 			String sql = "INSERT INTO ANIMAL_MEMBER" + 
-						 "(EMAIL, NAME, NICK_NAME, PASSWORD, PHONE, ADDR, GRADE) " +
+						 "(EMAIL, NAME, NICK_NAME, PASSWORD, PHONE, ADDR, CENTER_IDX) " +
 						 "VALUES(?, ?, ?, ?, ?, ?, ?)";
 			
 			conn = DBCP.getConnection();
@@ -42,7 +42,7 @@ public class MemberDAO {
 			preStatement.setString(4, vo.getPassword());
 			preStatement.setString(5, vo.getPhone());
 			preStatement.setString(6, vo.getAddr());
-			preStatement.setString(7, vo.getGrade());
+			preStatement.setInt(7, vo.getCenterIdx());
 			
 			result = preStatement.executeUpdate();
 			
@@ -71,7 +71,7 @@ public class MemberDAO {
 			if(resultSet.next()) {
 				result = new MemberVO();
 				result.setNickName(resultSet.getString("NICK_NAME"));
-				result.setGrade(resultSet.getString("GRADE"));
+				result.setCenterIdx(resultSet.getInt("CENTER_IDX"));
 			}
 			
 		} catch(SQLException e) {

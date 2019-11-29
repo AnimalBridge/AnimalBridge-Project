@@ -23,7 +23,7 @@
 		
 			<c:otherwise>
 				<p>${memberLogInNickName} 님, 회원가입을 축하 드립니다.</p>
-				<p>등급 : ${memberLogInGrade}</p>
+				<p>등급 : ${memberLogInCenterIdx}</p>
 			</c:otherwise>
 		</c:choose>
 		
