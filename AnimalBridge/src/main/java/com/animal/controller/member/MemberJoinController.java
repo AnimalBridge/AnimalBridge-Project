@@ -24,15 +24,13 @@ public class MemberJoinController implements SubController {
 		String password = req.getParameter("password");
 		String phone = req.getParameter("phone");
 		String addr = req.getParameter("addr");
-		String grade = req.getParameter("grade");
 		
 		MemberVO memberVO = new MemberVO(email, 
 										 name,
 										 nickName,
 										 password,
 										 phone,
-										 addr,
-										 grade);
+										 addr);
 		
 		Service service = Service.getInstance();
 		int result = service.memberJoin(memberVO);
@@ -40,7 +38,6 @@ public class MemberJoinController implements SubController {
 		if(result > 0) {
 			HttpSession session = req.getSession();
 			session.setAttribute("memberLogInNickName", nickName);
-			session.setAttribute("memberLogInGrade", grade);
 			
 		} else {
 			req.setAttribute("error", "회원가입이 실패하였습니다");
